@@ -38,13 +38,13 @@ data class DependencyContainer(
     )
 
     /** Use Cases */
-    private val createRegistrationUseCase = CreateRegistrationUseCase(registrationRepository, userRepository, emailSender, passwordValidationRules)
+    private val createRegistrationUseCase = CreateRegistrationUseCase(registrationRepository, userRepository, passwordValidationRules)
     private val activateUserUseCase = ActivateUserUseCase(userRepository)
     private val confirmRegistrationUseCase = ConfirmRegistrationUseCase(registrationRepository, userRepository)
     private val blockUserUseCase = BlockUserUseCase(userRepository)
 
     /** Handlers */
-    val registerHandler = RegisterHandler(createRegistrationUseCase, metricProvider)
+    val registerHandler = RegisterHandler(createRegistrationUseCase, metricProvider, emailSender)
     val activateUserHandler = ActivateUserHandler(activateUserUseCase, metricProvider)
     val confirmRegistrationHandler = ConfirmRegistrationHandler(confirmRegistrationUseCase, metricProvider)
     val blockUserHandler = BlockUserHandler(blockUserUseCase, metricProvider)
