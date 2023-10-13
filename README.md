@@ -1,6 +1,6 @@
 # Ktor-di
 
-## Simple stupid Ktor project shows that it's not needed to import any dependency inversion container/library to have DI.
+## Simple stupid Ktor project shows that it's not needed to import any dependency injection container/library to have DI.
 Dependency container resides [here](adapters/src/main/kotlin/com/kamilf/config/dependency/DependencyContainer.kt) <br>
 Core domain logic resides in `domain` module. In `adapters` module port's implementations are located.
 
